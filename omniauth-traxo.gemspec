@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
+  s.files.each    { |item| s.files.delete(item) if item =~ /omniauth-traxo-[0-9]+\.[0-9]+\.[0-9]+\.gem/ }
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = ['lib']
